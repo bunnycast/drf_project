@@ -4,6 +4,8 @@ from rental.models import Friend, Belonging, Borrowed
 
 
 class FriendSerializer(serializers.ModelSerializer):
+    owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
     class Meta:
         model = Friend
         fields = ('id', 'name')
